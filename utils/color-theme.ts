@@ -1,0 +1,134 @@
+import { vars } from 'nativewind';
+
+export const themes = {
+  light: vars({
+    /* text-icons */
+    '--text-primary': 'hsla(224, 71%, 4%, 1)',
+    '--text-secondary': 'hsla(224, 71%, 4%, 0.5)',
+    '--text-placeholder': 'hsla(224, 71%, 4%, 0.32)',
+    '--text-disabled': 'hsla(224, 71%, 4%, 0.24)',
+
+    /* background-components */
+    '--foreground-default': 'hsla(224, 71%, 4%, 0.05)',
+    '--foreground-hover': 'hsla(224, 71%, 4%, 0.1)',
+    '--foreground-press': 'hsla(224, 71%, 4%, 0.15)',
+    '--foreground-selected': 'hsla(224, 71%, 4%, 0.05)',
+    '--foreground-disabled': 'hsla(224, 71%, 4%, 0.05)',
+
+    /* background-layout */
+    '--background-canvas': 'hsla(180, 4%, 95%, 1)',
+    '--background-container': 'hsla(0, 0%, 100%, 1)',
+    '--background-pure': 'hsla(0, 0%, 100%, 1)',
+    '--background-surface-1': 'hsla(0, 0%, 100%, 1)',
+    '--background-surface-2': 'hsla(0, 0%, 100%, 1)',
+    '--background-focus': 'hsla(240, 3%, 6%, 0.5)',
+
+    /* primary */
+    '--primary-dark': 'hsla(167, 83%, 14%, 1)',
+    '--primary-base': 'hsla(167, 84%, 20%, 1)',
+    '--primary-light': 'hsla(167, 74%, 30%, 1)',
+    '--primary-op-24': 'hsla(167, 84%, 20%, 0.24)',
+    '--primary-op-16': 'hsla(167, 84%, 20%, 0.16)',
+    '--primary-op-8': 'hsla(167, 84%, 20%, 0.08)',
+
+    /* secondary */
+    '--secondary-dark': 'hsla(271, 63%, 53%, 1)',
+    '--secondary-base': 'hsla(271, 91%, 65%, 1)',
+    '--secondary-light': 'hsla(271, 100%, 77%, 1)',
+    '--secondary-op-24': 'hsla(271, 91%, 65%, 0.24)',
+    '--secondary-op-16': 'hsla(271, 91%, 65%, 0.24)',
+    '--secondary-op-8': 'hsla(271, 91%, 65%, 0.08)',
+
+    /* success */
+    '--success-dark': 'hsla(142, 65%, 37%, 1)',
+    '--success-base': 'hsla(142, 70%, 44%, 1)',
+    '--success-light': 'hsla(142, 68%, 54%, 1)',
+    '--success-op-24': 'hsla(142, 70%, 44%, 0.24)',
+    '--success-op-16': 'hsla(142, 70%, 44%, 0.16)',
+    '--success-op-8': 'hsla(142, 70%, 44%, 0.08)',
+
+    /* warning */
+    '--warning-dark': 'hsla(24, 83%, 42%, 1)',
+    '--warning-base': 'hsla(25, 95%, 53%, 1)',
+    '--warning-light': 'hsla(24, 100%, 66%, 1)',
+    '--warning-op-24': 'hsla(25, 95%, 53%, 0.24)',
+    '--warning-op-16': 'hsla(25, 95%, 53%, 0.16)',
+    '--warning-op-8': 'hsla(25, 95%, 53%, 0.08)',
+
+    /* error */
+    '--error-dark': 'hsla(357, 71%, 45%, 1)',
+    '--error-base': 'hsla(357, 96%, 58%, 1)',
+    '--error-light': 'hsla(357, 98%, 65%, 1)',
+    '--error-op-24': 'hsla(357, 96%, 58%, 0.24)',
+    '--error-op-16': 'hsla(357, 96%, 58%, 0.16)',
+    '--error-op-8': 'hsla(357, 96%, 58%, 0.08)',
+    /* informative */
+    '--info-dark': 'hsla(217, 64%, 46%, 1)',
+    '--info-base': 'hsla(217, 91%, 60%, 1)',
+    '--info-light': 'hsla(217, 94%, 69%, 1)',
+    '--info-op-24': 'hsla(224, 71%, 4%, 0.05)',
+    '--info-op-16': 'hsla(217, 91%, 60%, 0.16)',
+    '--info-op-8': 'hsla(217, 91%, 60%, 0.08)',
+    /* grayscale */
+    '--gray-dark': 'hsla(221, 10%, 35%, 1)',
+    '--gray-base': 'hsla(220, 9%, 46%, 1)',
+    '--gray-light': 'hsla(220, 13%, 65%, 1)',
+    '--gray-op-24': 'hsla(220, 9%, 46%, 0.24)',
+    '--gray-op-16': 'hsla(220, 9%, 46%, 0.16)',
+    '--gray-op-8': 'hsla(220, 9%, 46%, 0.08)',
+  }),
+  dark: vars({
+    /* text-icons */
+    '--text-primary': '#FFFFFF',
+    '--text-secondary': '#878788',
+    '--text-placeholder': '#5C5C5D',
+    '--text-disabled': '#49494A',
+
+    /* background-components */
+    '--foreground-default': '#1C1C1D',
+    '--foreground-hover': '#282829',
+    '--foreground-press': '#343435',
+    '--foreground-selected': '#1C1C1D',
+    '--foreground-disabled': '#1C1C1D',
+
+    /* background-layout */
+    '--background-canvas': '#101011',
+    '--background-container': '#1A1A1B',
+    '--background-pure': '#101011',
+    '--background-surface-1': '#242426',
+    '--background-surface-2': '#39393B',
+    '--background-focus': '#0A0C13',
+
+    /* primary */
+    '--primary-dark': '#3BA790',
+    '--primary-base': '#269B82',
+    '--primary-light': '#1B846D',
+    '--primary-op-24': '#132E29',
+    '--primary-op-16': '#122421',
+    '--primary-op-8': '#111A19',
+
+    /* secondary */
+    '--secondary-dark': 'hsla(271, 100%, 77%, 1)',
+    '--secondary-base': 'hsla(271, 91%, 65%, 1)',
+    '--secondary-light': 'hsla(271, 63%, 53%, 1)',
+    '--secondary-op-24': 'hsla(271, 91%, 65%, 0.24)',
+    '--secondary-op-16': 'hsla(271, 91%, 65%, 0.24)',
+    '--secondary-op-8': 'hsla(271, 91%, 65%, 0.08)',
+
+    /* success */
+    '--success-dark': 'hsla(142, 68%, 54%, 1)',
+    '--success-base': 'hsla(142, 70%, 44%, 1)',
+    '--success-light': 'hsla(142, 65%, 37%, 1)',
+    '--success-op-24': 'hsla(142, 70%, 44%, 0.24)',
+    '--success-op-16': 'hsla(142, 70%, 44%, 0.16)',
+    '--success-op-8': 'hsla(142, 70%, 44%, 0.08)',
+
+    /* warning */
+    '--warning-dark': 'hsla(24, 100%, 66%, 1)',
+    '--warning-base': 'hsla(25, 95%, 53%, 1)',
+    '--warning-light': 'hsla(24, 83%, 42%, 1)',
+    '--warning-op-24': 'hsla(25, 95%, 53%, 0.24)',
+    '--warning-op-16': 'hsla(25, 95%, 53%, 0.16)',
+    '--warning-op-8': 'hsla(25, 95%, 53%, 0.08)',
+  }),
+};

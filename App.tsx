@@ -1,13 +1,17 @@
-import { ScreenContent } from 'components/ScreenContent';
+import { ContainerView } from 'components/container-view';
+import { Header } from 'components/header';
 import { StatusBar } from 'expo-status-bar';
+import { ThemeProvider } from 'utils/theme-provider';
 
 import './global.css';
 
 export default function App() {
   return (
-    <>
-      <ScreenContent title="Home" path="App.tsx" />
-      <StatusBar style="auto" />
-    </>
+    <ThemeProvider>
+      <ContainerView>
+        <Header />
+        <StatusBar style="auto" />
+      </ContainerView>
+    </ThemeProvider>
   );
 }
