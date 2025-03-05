@@ -9,6 +9,6 @@ export const ContainerView = ({ children }: { children: React.ReactNode }) => {
 };
 
 const styles = {
-  container: 'bg-foreground_default flex flex-1',
-  view: 'flex-1 p-5',
+  container: 'bg-foreground-default flex flex-1',
+  view: 'flex-1 p-[22px] mt-[39px]',
 };
