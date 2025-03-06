@@ -91,7 +91,7 @@ export const themes = {
     '--foreground-hover': '#282829',
     '--foreground-press': '#343435',
     '--foreground-selected': '#1C1C1D',
-    '--foreground-disabled': '#1C1C1D',
+    '--foreground-disabled': '#343435',
 
     /* background-layout */
     '--background-canvas': '#101011',
