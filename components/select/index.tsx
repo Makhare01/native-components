@@ -1,11 +1,10 @@
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import { ArrowDownIcon } from 'assets/icons';
-import { X } from 'lucide-react-native';
-import { forwardRef, ReactNode, useCallback, useEffect, useRef } from 'react';
+import { useColorScheme } from 'nativewind';
+import { forwardRef, ReactNode, useCallback, useRef } from 'react';
 import { Animated, Text, TouchableOpacity, View } from 'react-native';
 import { cn } from 'utils';
 
-import { useColorScheme } from 'nativewind';
 import { SelectBottomSheet } from './select-bottom-sheet';
 
 type OptionValue = any;
@@ -45,12 +44,13 @@ type SelectProps = {
   onChange: (value: OptionValue) => void;
   options: SelectOption[];
   label?: string;
+  disabled?: boolean;
   error?: boolean;
   helperText?: string;
 };
 
 export const CustomSelect = forwardRef<View | null, SelectProps>(
-  ({ value, onChange, options, label = 'Select', error, helperText }, ref) => {
+  ({ value, onChange, options, label = 'Select', disabled, error, helperText }, ref) => {
     const { colorScheme } = useColorScheme();
 
     const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -70,10 +70,6 @@ export const CustomSelect = forwardRef<View | null, SelectProps>(
       [onChange]
     );
 
-    useEffect(() => {
-      console.log('effect', value);
-    }, [value]);
-
     const rotateInterpolate = rotateAnim.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '180deg'],
@@ -82,41 +78,58 @@ export const CustomSelect = forwardRef<View | null, SelectProps>(
     return (
       <SelectBottomSheet
         triggerElement={(open) => (
-          <View
-            ref={ref}
-            className={cn(
-              'bg-foreground-disabled min-h-12 w-full flex-row items-center justify-between gap-3 rounded-xl border border-transparent px-3 py-3.5',
-              {
-                'border-success-dark': open,
-              }
-            )}>
-            <Text
-              className={cn('text-text-secondary text-sm', {
-                'text-text-primary': value !== undefined,
+          <View>
+            <View // Add this view for ring effect
+              className={cn('rounded-xl border border-transparent', {
+                'border-primary-op-24': open,
               })}>
-              {value ?? label}
-            </Text>
-
-            <View className="flex-row items-center gap-3">
-              <TouchableOpacity
-                className={cn('opacity-1', {
-                  'opacity-20': value === undefined,
-                })}
-                onPress={() => {
-                  if (value !== undefined) {
-                    onChange(undefined);
+              <View
+                ref={ref}
+                className={cn(
+                  'bg-foreground-disabled h-[48px] max-h-[48px] w-full flex-row items-center justify-between gap-3 rounded-xl border border-transparent px-3 py-1.5',
+                  {
+                    'border-primary-base': open,
+                    'bg-error-op-8': error,
+                    'bg-foreground-disabled': disabled,
                   }
-                }}>
-                <X color={colorScheme === 'light' ? '#03071280' : '#FFFFFF'} size={16} />
-              </TouchableOpacity>
-              <Animated.View style={{ transform: [{ rotate: rotateInterpolate }] }}>
-                <ArrowDownIcon
-                  {...(colorScheme === 'dark' && {
-                    color: '#FFFFFF',
-                  })}
-                />
-              </Animated.View>
+                )}>
+                <View>
+                  <Text
+                    className={cn('text-text-secondary text-sm', {
+                      'text-text-disabled': disabled,
+                      'text-xs': !!value,
+                    })}>
+                    {label}
+                  </Text>
+                  {!!value && (
+                    <Text
+                      className={cn('text-text-primary text-sm', {
+                        'text-text-disabled': disabled,
+                      })}>
+                      {value}
+                    </Text>
+                  )}
+                </View>
+
+                <Animated.View style={{ transform: [{ rotate: rotateInterpolate }] }}>
+                  <ArrowDownIcon
+                    color={
+                      disabled ? '#0307123D' : colorScheme === 'dark' ? '#FFFFFF' : '#03071280'
+                    }
+                  />
+                </Animated.View>
+              </View>
             </View>
+
+            {helperText && (
+              <Text
+                className={cn('text-text-secondary ml-0.5 mt-1.5 text-xs', {
+                  'text-error-dark': error,
+                  'text-text-disabled': disabled,
+                })}>
+                {helperText}
+              </Text>
+            )}
           </View>
         )}
         onChange={(open) => {
@@ -126,7 +139,8 @@ export const CustomSelect = forwardRef<View | null, SelectProps>(
             useNativeDriver: true,
           }).start();
         }}
-        title={label}>
+        title={label}
+        disabled={disabled}>
         {(onClose) => (
           <BottomSheetFlatList
             data={options}

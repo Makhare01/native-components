@@ -3,20 +3,18 @@ import { ContainerView } from 'components/container-view';
 import { Header } from 'components/header';
 import { CustomSelect } from 'components/select';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { Host } from 'react-native-portalize';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'utils/theme-provider';
 
-import { useEffect, useState } from 'react';
 import './global.css';
 
 export default function App() {
   const [value, setValue] = useState<string | undefined>();
 
-  useEffect(() => {
-    console.log('OUT', value);
-  }, [value]);
+  useEffect(() => {}, [value]);
 
   return (
     <ThemeProvider>
@@ -31,6 +29,7 @@ export default function App() {
               <CustomSelect
                 value={value}
                 onChange={(value) => setValue(value)}
+                helperText="Description text here"
                 options={[
                   {
                     label: 'One',

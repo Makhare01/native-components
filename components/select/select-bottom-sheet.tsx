@@ -17,9 +17,16 @@ type Props = {
   title: string;
   children: (onClose: () => void) => ReactNode;
   onChange?: (open: boolean) => void;
+  disabled?: boolean;
 };
 
-export const SelectBottomSheet = ({ triggerElement, title, children, onChange }: Props) => {
+export const SelectBottomSheet = ({
+  triggerElement,
+  title,
+  children,
+  onChange,
+  disabled,
+}: Props) => {
   const isOpen = useBoolean(false);
 
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -28,7 +35,6 @@ export const SelectBottomSheet = ({ triggerElement, title, children, onChange }:
   const { colorScheme } = useColorScheme();
 
   const handleClose = useCallback(() => {
-    // console.log('handleClose');
     bottomSheetRef.current?.close();
 
     // Hide GestureHandlerRootView after 0.5s to see closing animation
@@ -55,7 +61,7 @@ export const SelectBottomSheet = ({ triggerElement, title, children, onChange }:
     <>
       <Pressable
         onPress={() => {
-          if (isOpen.isFalse) {
+          if (isOpen.isFalse && !disabled) {
             isOpen.setTrue();
             bottomSheetRef.current?.snapToIndex(0);
             onChange?.(true);
