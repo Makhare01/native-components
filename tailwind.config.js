@@ -23,6 +23,15 @@ module.exports = {
           disabled: 'var(--foreground-disabled)',
         },
 
+        // background
+        background: {
+          canvas: 'var(--background-canvas)',
+          container: 'var(--background-container)',
+          surface1: 'var(--background-surface-1)',
+          surface2: 'var(--background-surface-2)',
+          focus: 'var(--background-focus)',
+        },
+
         // primary
         primary: {
           dark: 'var(--primary-dark)',

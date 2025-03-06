@@ -5,7 +5,7 @@ export const Header = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
 
   return (
-    <View className="mt- flex-row items-center justify-between">
+    <View className="mt- mt-[61px] flex-row items-center justify-between">
       <Text className="text-text-primary text-[32px] font-semibold">Profile Info</Text>
 
       <View className="flex-row items-center gap-3">
