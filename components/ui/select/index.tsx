@@ -22,16 +22,16 @@ type SelectItemProps = SelectOption & {
 const SelectItem = ({ label, onPress, isActive }: Omit<SelectItemProps, 'value'>) => {
   return (
     <TouchableOpacity
-      className="border-foreground-disabled flex-row items-center justify-between border-b py-5"
+      className="flex-row items-center justify-between border-b border-foreground-disabled py-5"
       onPress={onPress}>
       {typeof label === 'string' ? (
-        <Text className="text-text-primary text-base font-semibold">{label}</Text>
+        <Text className="text-base font-semibold text-text-primary">{label}</Text>
       ) : (
         label
       )}
 
       <View
-        className={cn('border-foreground-hover h-5 w-5 rounded-full border-2', {
+        className={cn('h-5 w-5 rounded-full border-2 border-foreground-hover', {
           'bg-primary-light': isActive,
         })}
       />
@@ -86,16 +86,15 @@ export const CustomSelect = forwardRef<View | null, SelectProps>(
               <View
                 ref={ref}
                 className={cn(
-                  'bg-foreground-disabled h-[48px] max-h-[48px] w-full flex-row items-center justify-between gap-3 rounded-xl border border-transparent px-3 py-1.5',
+                  'h-[48px] max-h-[48px] w-full flex-row items-center justify-between gap-3 rounded-xl border border-transparent bg-foreground-disabled px-3 py-1.5',
                   {
                     'border-primary-base': open,
                     'bg-error-op-8': error,
-                    'bg-foreground-disabled': disabled,
                   }
                 )}>
                 <View>
                   <Text
-                    className={cn('text-text-secondary text-sm', {
+                    className={cn('text-sm text-text-secondary', {
                       'text-text-disabled': disabled,
                       'text-xs': !!value,
                     })}>
@@ -103,7 +102,7 @@ export const CustomSelect = forwardRef<View | null, SelectProps>(
                   </Text>
                   {!!value && (
                     <Text
-                      className={cn('text-text-primary text-sm', {
+                      className={cn('text-sm text-text-primary', {
                         'text-text-disabled': disabled,
                       })}>
                       {value}
@@ -123,7 +122,7 @@ export const CustomSelect = forwardRef<View | null, SelectProps>(
 
             {helperText && (
               <Text
-                className={cn('text-text-secondary ml-0.5 mt-1.5 text-xs', {
+                className={cn('ml-0.5 mt-1.5 text-xs text-text-secondary', {
                   'text-error-dark': error,
                   'text-text-disabled': disabled,
                 })}>

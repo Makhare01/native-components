@@ -1,7 +1,7 @@
-// src/shared-components/providers/ThemeProviders.tsx
+import { useColorScheme } from 'nativewind';
 import React, { createContext } from 'react';
 import { View } from 'react-native';
-import { useColorScheme } from 'nativewind';
+
 import { themes } from './color-theme';
 
 interface ThemeProviderProps {

@@ -1,5 +1,4 @@
-import { View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, View } from 'react-native';
 
 export const ContainerView = ({ children }: { children: React.ReactNode }) => {
   return (
