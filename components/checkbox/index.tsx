@@ -66,6 +66,7 @@ export const CustomCheckbox = forwardRef<View | null, CheckboxProps>(
     return (
       <Pressable
         ref={ref}
+        testID="checkbox-pressable"
         onPress={() => {
           if (!disabled) {
             toggleCheckbox();
@@ -77,12 +78,13 @@ export const CustomCheckbox = forwardRef<View | null, CheckboxProps>(
           'flex-row-reverse items-center': labelPlacement === 'left',
         })}>
         <View
+          testID="checkbox-icon"
           className={cn(
             'border-foreground-hover flex h-5 w-5 items-center justify-center rounded-md border-2',
             isChecked.isTrue && activeColor,
+            error && 'bg-error-op-8 border-transparent',
             {
               'bg-foreground-disabled': disabled,
-              'bg-error-op-8 border-transparent': error,
               'opacity-50': error && disabled,
             }
           )}>
