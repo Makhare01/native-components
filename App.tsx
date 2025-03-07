@@ -3,7 +3,7 @@ import { ContainerView } from 'components/container-view';
 import { Header } from 'components/header';
 import { CustomSelect } from 'components/select';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { View } from 'react-native';
 import { Host } from 'react-native-portalize';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -14,8 +14,6 @@ import './global.css';
 export default function App() {
   const [value, setValue] = useState<string | undefined>();
 
-  useEffect(() => {}, [value]);
-
   return (
     <ThemeProvider>
       <SafeAreaProvider>
@@ -24,7 +22,13 @@ export default function App() {
             <Header />
 
             <View className="mt-5 gap-5">
-              <CustomCheckbox label="Label" description="Description" color="secondary" required />
+              <CustomCheckbox
+                label="Label"
+                description="Description"
+                color="secondary"
+                required
+                checked
+              />
 
               <CustomSelect
                 value={value}
