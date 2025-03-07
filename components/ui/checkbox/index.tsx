@@ -80,9 +80,9 @@ export const CustomCheckbox = forwardRef<View | null, CheckboxProps>(
         <View
           testID="checkbox-icon"
           className={cn(
-            'border-foreground-hover flex h-5 w-5 items-center justify-center rounded-md border-2',
+            'flex h-5 w-5 items-center justify-center rounded-md border-2 border-foreground-hover',
             isChecked.isTrue && activeColor,
-            error && 'bg-error-op-8 border-transparent',
+            error && 'border-transparent bg-error-op-8',
             {
               'bg-foreground-disabled': disabled,
               'opacity-50': error && disabled,
@@ -96,7 +96,7 @@ export const CustomCheckbox = forwardRef<View | null, CheckboxProps>(
         <View>
           {label && (
             <Text
-              className={cn('text-text-primary text-sm font-semibold', {
+              className={cn('text-sm font-semibold text-text-primary', {
                 'text-text-disabled': disabled,
                 'text-error-base': error,
                 'opacity-50': error && disabled,
@@ -109,7 +109,7 @@ export const CustomCheckbox = forwardRef<View | null, CheckboxProps>(
 
           {label && description && (
             <Text
-              className={cn('text-text-secondary mt-0.5 text-xs', {
+              className={cn('mt-0.5 text-xs text-text-secondary', {
                 'text-text-disabled': disabled,
                 'text-center': labelPlacement === 'top' || labelPlacement === 'bottom',
               })}>

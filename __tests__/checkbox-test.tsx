@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react-native';
 
-import { CustomCheckbox } from '../components/checkbox';
+import { CustomCheckbox } from '../components/ui/checkbox';
 
 describe('CustomCheckbox', () => {
   it('renders correctly with default props', () => {

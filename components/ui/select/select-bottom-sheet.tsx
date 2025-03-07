@@ -85,12 +85,12 @@ export const SelectBottomSheet = ({
             enableHandlePanningGesture={false}
             enableContentPanningGesture={false}
             handleComponent={null}>
-            <BottomSheetView className="bg-foreground-default flex-1 rounded-2xl">
-              <View className="border-foreground-disabled flex-row items-center justify-between border-b p-5">
-                <Text className="text-text-primary text-xl font-bold">{title}</Text>
+            <BottomSheetView className="flex-1 rounded-2xl bg-foreground-default">
+              <View className="flex-row items-center justify-between border-b border-foreground-disabled p-5">
+                <Text className="text-xl font-bold text-text-primary">{title}</Text>
 
                 <TouchableOpacity
-                  className="bg-foreground-disabled h-10 w-10 items-center justify-center rounded-full"
+                  className="h-10 w-10 items-center justify-center rounded-full bg-foreground-disabled"
                   onPress={handleClose}>
                   <X color={colorScheme === 'light' ? '#030712' : '#FFFFFF'} size={14} />
                 </TouchableOpacity>
